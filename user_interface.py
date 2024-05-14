@@ -6,6 +6,7 @@ BACKGROUND_COLOUR = "#9195F6"
 BUTTON_COLOUR = "#F94892"
 CROSS_COLOUR = "#10439F"
 CIRCLE_COLOUR = "#F94A29"
+NUMERICAL_COLOUR = "#211C6A"
 
 # character positioning
 positions = {
@@ -61,20 +62,25 @@ scale = min(max_width / image_width, max_height / image_height)
 # Resize the image
 image_width = int(image_width * scale)
 image_height = int(image_height * scale)
-front_resized = front.subsample(round(1 / scale), round(1 / scale))  # Resample the image to fit the canvas
+front_resized = front.subsample(round(1 / scale), round(1 / scale))
 
-# Create a canvas with the resized image
+# default canvas
 display_canvas = Canvas(app, width=max_width, height=max_height, bg=BACKGROUND_COLOUR, highlightthickness=0)
 display_canvas.create_image(max_width / 2, max_height / 2, image=front_resized)
-word_text = display_canvas.create_text(positions['09'], text="❌", fill=CROSS_COLOUR, font=("calibri", 90))
+num_1 = display_canvas.create_text(positions['01'], text="01", fill=NUMERICAL_COLOUR, font=("calibri", 90))
+num_2 = display_canvas.create_text(positions['02'], text="02", fill=NUMERICAL_COLOUR, font=("calibri", 90))
+num_3 = display_canvas.create_text(positions['03'], text="03", fill=NUMERICAL_COLOUR, font=("calibri", 90))
+num_4 = display_canvas.create_text(positions['04'], text="04", fill=NUMERICAL_COLOUR, font=("calibri", 90))
+num_5 = display_canvas.create_text(positions['05'], text="05", fill=NUMERICAL_COLOUR, font=("calibri", 90))
+num_6 = display_canvas.create_text(positions['06'], text="06", fill=NUMERICAL_COLOUR, font=("calibri", 90))
+num_7 = display_canvas.create_text(positions['07'], text="07", fill=NUMERICAL_COLOUR, font=("calibri", 90))
+num_8 = display_canvas.create_text(positions['08'], text="08", fill=NUMERICAL_COLOUR, font=("calibri", 90))
+num_9 = display_canvas.create_text(positions['09'], text="09", fill=NUMERICAL_COLOUR, font=("calibri", 90))
 display_canvas.grid(row=1, column=1, columnspan=2, pady=20)
 
 play_image = PhotoImage(file="images/black_play.png")
-
-right_button = Button(bg=BUTTON_COLOUR, image=play_image, highlightthickness=0, )
-wrong_button = Button(highlightthickness=0, )
-right_button.grid(row=2, column=2)
-wrong_button.grid(row=2, column=1)
+play_button = Button(bg=BUTTON_COLOUR, image=play_image, highlightthickness=0)
+play_button.grid(row=2, column=1)
 
 
 def get_user_input():
@@ -89,6 +95,6 @@ def get_user_input():
 
 # Create a button to trigger the input dialog
 button = Button(text="Get Input", command=get_user_input)
-button.grid(row=2, column=3)
+button.grid(row=2, column=2)
 
 app.mainloop()

@@ -23,7 +23,7 @@ positions = {
 
 
 def get_player_one():
-    player_1 = easygui.enterbox("What's your name?\n You'll be player 1:", "Input")  # Set timeout to 5 seconds
+    player_1 = easygui.enterbox("What's your name?\n You'll be player 1✖️:", "Input")
     if player_1 is not None:
         pass
     else:
@@ -31,7 +31,7 @@ def get_player_one():
 
 
 def get_player_two():
-    player_2 = easygui.enterbox("What's your name?\n You'll be player 2:", "Input")  # Set timeout to 5 seconds
+    player_2 = easygui.enterbox("What's your name?\n You'll be player 2:", "Input")
     if player_2 is not None:
         pass
         # Process the user input here
@@ -40,8 +40,8 @@ def get_player_two():
         # Handle the case where the timeout occurs
 
 
-# get_player_one()
-# get_player_two()
+get_player_one()
+get_player_two()
 app = Tk()
 app.title("Tic-tac-toe")
 # app.geometry("900x600")
@@ -49,8 +49,6 @@ app.config(padx=30, pady=20, bg=BACKGROUND_COLOUR)
 
 # board image
 board = PhotoImage(file="images/colourful_grid.png")
-
-# Calculate the size of the image
 image_width = board.width()
 image_height = board.height()
 
@@ -76,6 +74,7 @@ num_8 = display_canvas.create_text(positions['08'], text="08", fill=NUMERICAL_CO
 num_9 = display_canvas.create_text(positions['09'], text="09", fill=NUMERICAL_COLOUR, font=("calibri", 90))
 display_canvas.grid(row=1, column=1, columnspan=2, pady=20)
 
+# play button
 play_image = PhotoImage(file="images/black_play.png")
 play_button = Button(bg=BUTTON_COLOUR, image=play_image, highlightthickness=0)
 play_button.grid(row=2, column=1)

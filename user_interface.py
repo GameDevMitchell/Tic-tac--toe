@@ -47,26 +47,24 @@ app.title("Tic-tac-toe")
 # app.geometry("900x600")
 app.config(padx=30, pady=20, bg=BACKGROUND_COLOUR)
 
-# Load the image
-front = PhotoImage(file="images/colourful_grid.png")
+# board image
+board = PhotoImage(file="images/colourful_grid.png")
 
 # Calculate the size of the image
-image_width = front.width()
-image_height = front.height()
+image_width = board.width()
+image_height = board.height()
 
-# Calculate the scaling factor to fit the image within the available space
-max_width = 430  # Maximum width of the canvas
-max_height = 430  # Maximum height of the canvas
+# canvas setup
+max_width = 430
+max_height = 430
 scale = min(max_width / image_width, max_height / image_height)
-
-# Resize the image
 image_width = int(image_width * scale)
 image_height = int(image_height * scale)
-front_resized = front.subsample(round(1 / scale), round(1 / scale))
+board_resized = board.subsample(round(1 / scale), round(1 / scale))
 
 # default canvas
 display_canvas = Canvas(app, width=max_width, height=max_height, bg=BACKGROUND_COLOUR, highlightthickness=0)
-display_canvas.create_image(max_width / 2, max_height / 2, image=front_resized)
+display_canvas.create_image(max_width / 2, max_height / 2, image=board_resized)
 num_1 = display_canvas.create_text(positions['01'], text="01", fill=NUMERICAL_COLOUR, font=("calibri", 90))
 num_2 = display_canvas.create_text(positions['02'], text="02", fill=NUMERICAL_COLOUR, font=("calibri", 90))
 num_3 = display_canvas.create_text(positions['03'], text="03", fill=NUMERICAL_COLOUR, font=("calibri", 90))

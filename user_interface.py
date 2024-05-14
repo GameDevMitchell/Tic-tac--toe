@@ -12,10 +12,8 @@ def get_player_one():
     player_1 = easygui.enterbox("What's your name?\n You'll be player 1:", "Input")  # Set timeout to 5 seconds
     if player_1 is not None:
         pass
-        # Process the user input here
     else:
         pass
-        # Handle the case where the timeout occurs
 
 
 def get_player_two():
@@ -79,8 +77,5 @@ def get_user_input():
 # Create a button to trigger the input dialog
 button = Button(text="Get Input", command=get_user_input)
 button.grid(row=2, column=3)
-
-# Trigger the input popup automatically
-
 
 app.mainloop()

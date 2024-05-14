@@ -7,6 +7,19 @@ BUTTON_COLOUR = "#F94892"
 CROSS_COLOUR = "#10439F"
 CIRCLE_COLOUR = "#F94A29"
 
+# character positioning
+positions = {
+    "01": (78, 80),
+    "02": (215, 80),
+    "03": (352, 80),
+    "04": (78, 215),
+    "05": (215, 215),
+    "06": (352, 215),
+    "07": (78, 354),
+    "08": (215, 354),
+    "09": (352, 354)
+}
+
 
 def get_player_one():
     player_1 = easygui.enterbox("What's your name?\n You'll be player 1:", "Input")  # Set timeout to 5 seconds
@@ -26,8 +39,8 @@ def get_player_two():
         # Handle the case where the timeout occurs
 
 
-get_player_one()
-get_player_two()
+# get_player_one()
+# get_player_two()
 app = Tk()
 app.title("Tic-tac-toe")
 # app.geometry("900x600")
@@ -53,7 +66,7 @@ front_resized = front.subsample(round(1 / scale), round(1 / scale))  # Resample 
 # Create a canvas with the resized image
 display_canvas = Canvas(app, width=max_width, height=max_height, bg=BACKGROUND_COLOUR, highlightthickness=0)
 display_canvas.create_image(max_width / 2, max_height / 2, image=front_resized)
-word_text = display_canvas.create_text(325, 235, text="✖️", fill=CROSS_COLOUR, font=("calibri", 120))
+word_text = display_canvas.create_text(positions['09'], text="❌", fill=CROSS_COLOUR, font=("calibri", 90))
 display_canvas.grid(row=1, column=1, columnspan=2, pady=20)
 
 play_image = PhotoImage(file="images/black_play.png")

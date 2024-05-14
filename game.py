@@ -1,5 +1,5 @@
 from tkinter import *
-from tkinter import simpledialog
+from tkinter import simpledialog, messagebox
 import easygui
 
 BACKGROUND_COLOUR = "#9195F6"
@@ -24,6 +24,7 @@ positions = {
 
 def get_player_one():
     player_1 = easygui.enterbox("What's your name?\n You'll be player 1✖️:", "Input")
+    return player_1
     if player_1 is not None:
         pass
     else:
@@ -40,8 +41,25 @@ def get_player_two():
         # Handle the case where the timeout occurs
 
 
-get_player_one()
+def choose_position(player):
+    """goes to the position the player chooses"""
+    # if player == self.player_1:
+    #     character = "❌"
+    # else:
+    #     character = "⭕"
+    # # print(self.board)
+    response = input(f"where do you want to make your move {player}🤔: ")
+    if len(response) == 1:
+        while True:
+            messagebox.showwarning("Error", "Please include 0 in your answer. eg '01' and not 1")
+            response = input(f"where do you want to make your move {player}🤔\n")
+            if len(response) != 1:
+                break
+
+
+player = get_player_one()
 get_player_two()
+# choose_position(player)
 app = Tk()
 app.title("Tic-tac-toe")
 # app.geometry("900x600")
@@ -81,7 +99,14 @@ play_button.grid(row=2, column=1)
 
 
 def get_user_input():
-    user_input = simpledialog.askstring("Input", "Enter your text:")
+    user_input = simpledialog.askstring("Input", "Where do you wanna go:")
+    response = input(f"where do you want to make your move {player}🤔: ")
+    if len(response) == 1:
+        while True:
+            messagebox.showwarning("Error", "Please include 0 in your answer. eg '01' and not 1")
+            response = input(f"where do you want to make your move {player}🤔\n")
+            if len(response) != 1:
+                break
     if user_input is not None:
         pass
         # Process the user input here

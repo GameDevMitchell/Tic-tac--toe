@@ -18,7 +18,7 @@ positions = {
     "06": (352, 215),
     "07": (78, 354),
     "08": (215, 354),
-    "09": (352, 354)
+    "09": (352, 354),
 }
 
 
@@ -51,7 +51,9 @@ def choose_position(player):
     response = input(f"where do you want to make your move {player}🤔: ")
     if len(response) == 1:
         while True:
-            messagebox.showwarning("Error", "Please include 0 in your answer. eg '01' and not 1")
+            messagebox.showwarning(
+                "Error", "Please include 0 in your answer. eg '01' and not 1"
+            )
             response = input(f"where do you want to make your move {player}🤔\n")
             if len(response) != 1:
                 break
@@ -79,17 +81,37 @@ image_height = int(image_height * scale)
 board_resized = board.subsample(round(1 / scale), round(1 / scale))
 
 # default canvas
-display_canvas = Canvas(app, width=max_width, height=max_height, bg=BACKGROUND_COLOUR, highlightthickness=0)
+display_canvas = Canvas(
+    app, width=max_width, height=max_height, bg=BACKGROUND_COLOUR, highlightthickness=0
+)
 display_canvas.create_image(max_width / 2, max_height / 2, image=board_resized)
-num_1 = display_canvas.create_text(positions['01'], text="01", fill=NUMERICAL_COLOUR, font=("calibri", 90))
-num_2 = display_canvas.create_text(positions['02'], text="02", fill=NUMERICAL_COLOUR, font=("calibri", 90))
-num_3 = display_canvas.create_text(positions['03'], text="03", fill=NUMERICAL_COLOUR, font=("calibri", 90))
-num_4 = display_canvas.create_text(positions['04'], text="04", fill=NUMERICAL_COLOUR, font=("calibri", 90))
-num_5 = display_canvas.create_text(positions['05'], text="05", fill=NUMERICAL_COLOUR, font=("calibri", 90))
-num_6 = display_canvas.create_text(positions['06'], text="06", fill=NUMERICAL_COLOUR, font=("calibri", 90))
-num_7 = display_canvas.create_text(positions['07'], text="07", fill=NUMERICAL_COLOUR, font=("calibri", 90))
-num_8 = display_canvas.create_text(positions['08'], text="08", fill=NUMERICAL_COLOUR, font=("calibri", 90))
-num_9 = display_canvas.create_text(positions['09'], text="09", fill=NUMERICAL_COLOUR, font=("calibri", 90))
+num_1 = display_canvas.create_text(
+    positions["01"], text="01", fill=NUMERICAL_COLOUR, font=("calibri", 90)
+)
+num_2 = display_canvas.create_text(
+    positions["02"], text="02", fill=NUMERICAL_COLOUR, font=("calibri", 90)
+)
+num_3 = display_canvas.create_text(
+    positions["03"], text="03", fill=NUMERICAL_COLOUR, font=("calibri", 90)
+)
+num_4 = display_canvas.create_text(
+    positions["04"], text="04", fill=NUMERICAL_COLOUR, font=("calibri", 90)
+)
+num_5 = display_canvas.create_text(
+    positions["05"], text="05", fill=NUMERICAL_COLOUR, font=("calibri", 90)
+)
+num_6 = display_canvas.create_text(
+    positions["06"], text="06", fill=NUMERICAL_COLOUR, font=("calibri", 90)
+)
+num_7 = display_canvas.create_text(
+    positions["07"], text="07", fill=NUMERICAL_COLOUR, font=("calibri", 90)
+)
+num_8 = display_canvas.create_text(
+    positions["08"], text="08", fill=NUMERICAL_COLOUR, font=("calibri", 90)
+)
+num_9 = display_canvas.create_text(
+    positions["09"], text="09", fill=NUMERICAL_COLOUR, font=("calibri", 90)
+)
 display_canvas.grid(row=1, column=1, columnspan=2, pady=20)
 
 # play button
@@ -103,7 +125,9 @@ def get_user_input():
     response = input(f"where do you want to make your move {player}🤔: ")
     if len(response) == 1:
         while True:
-            messagebox.showwarning("Error", "Please include 0 in your answer. eg '01' and not 1")
+            messagebox.showwarning(
+                "Error", "Please include 0 in your answer. eg '01' and not 1"
+            )
             response = input(f"where do you want to make your move {player}🤔\n")
             if len(response) != 1:
                 break

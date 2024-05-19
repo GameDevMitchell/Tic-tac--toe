@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import simpledialog, messagebox
 import easygui
 
+# colour schemes
 BACKGROUND_COLOUR = "#9195F6"
 BUTTON_COLOUR = "#F94892"
 CROSS_COLOUR = "#10439F"

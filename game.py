@@ -23,7 +23,7 @@ positions = {
 }
 
 
-# assigning of the players position
+# assigning of the players position and character
 def get_player_one():
     player_1 = easygui.enterbox("What's your name?\n You'll be player 1✖️:", "Input")
     return player_1

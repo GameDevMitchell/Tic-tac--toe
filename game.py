@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import simpledialog, messagebox
 import easygui
+from main import Game
 
 # colour schemes
 BACKGROUND_COLOUR = "#9195F6"

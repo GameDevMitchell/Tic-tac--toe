@@ -31,7 +31,9 @@ class Game:
         # I have to make sure where the player plans to go exists, to prevent the code from crashing
         if response not in self.board:
             while True:
-                print("\nThat position has been taken or doesn't exist. choose another!")
+                print(
+                    "\nThat position has been taken or doesn't exist. choose another!"
+                )
                 response = input(f"where do you want to make your move {player}🤔 ")
                 if response in self.board:
                     break
@@ -43,8 +45,15 @@ class Game:
         """Produces a formatted score board in the form of lists, so I can work with it"""
         lines = [line.strip() for line in self.board.splitlines()]
         # Replace the unwanted characters in each line and convert the line to a list
-        processed_lines = [list(line.replace("❕", "").replace("➖", "")
-                                .replace("➕", "").replace("0", "")) for line in lines]
+        processed_lines = [
+            list(
+                line.replace("❕", "")
+                .replace("➖", "")
+                .replace("➕", "")
+                .replace("0", "")
+            )
+            for line in lines
+        ]
         # Filter out any empty lists from the processed lines
         self.game_list = [elements for elements in processed_lines if elements]
 
@@ -54,23 +63,45 @@ class Game:
 
         # Checks for horizontal wins
         for item in self.game_list:
-            if all(element == "⭕" for element in item) or all(element == "❌" for element in item):
+            if all(element == "⭕" for element in item) or all(
+                element == "❌" for element in item
+            ):
                 return True
 
         # Checks for diagonal wins
-        if (self.game_list[0][0] == "⭕" and self.game_list[1][1] == "⭕" and self.game_list[2][2] == "⭕") or (
-                self.game_list[0][2] == "⭕" and self.game_list[1][1] == "⭕" and self.game_list[2][0] == "⭕"):
+        if (
+            self.game_list[0][0] == "⭕"
+            and self.game_list[1][1] == "⭕"
+            and self.game_list[2][2] == "⭕"
+        ) or (
+            self.game_list[0][2] == "⭕"
+            and self.game_list[1][1] == "⭕"
+            and self.game_list[2][0] == "⭕"
+        ):
             return True
-        if (self.game_list[0][0] == "❌" and self.game_list[1][1] == "❌" and self.game_list[2][2] == "❌") or \
-                (self.game_list[0][2] == "❌" and self.game_list[1][1] == "❌" and self.game_list[2][0] == "❌"):
+        if (
+            self.game_list[0][0] == "❌"
+            and self.game_list[1][1] == "❌"
+            and self.game_list[2][2] == "❌"
+        ) or (
+            self.game_list[0][2] == "❌"
+            and self.game_list[1][1] == "❌"
+            and self.game_list[2][0] == "❌"
+        ):
             return True
 
         # Checks for vertical wins
-        if all(element[0] == "⭕" for element in self.game_list) or all(element[0] == "❌" for element in self.game_list):
+        if all(element[0] == "⭕" for element in self.game_list) or all(
+            element[0] == "❌" for element in self.game_list
+        ):
             return True
-        if all(element[1] == "⭕" for element in self.game_list) or all(element[1] == "❌" for element in self.game_list):
+        if all(element[1] == "⭕" for element in self.game_list) or all(
+            element[1] == "❌" for element in self.game_list
+        ):
             return True
-        if all(element[2] == "⭕" for element in self.game_list) or all(element[2] == "❌" for element in self.game_list):
+        if all(element[2] == "⭕" for element in self.game_list) or all(
+            element[2] == "❌" for element in self.game_list
+        ):
             return True
 
         return False

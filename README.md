@@ -20,7 +20,7 @@ To run this project, you need to have Python installed on your system. Follow th
    git clone https://github.com/yourusername/tic-tac-toe.git
 2. Run the game:
    ```sh
-   python game.py
+   python main.py
 
 ## Usage
 When you run the game, it will prompt both players to enter their names. The players then take turns to enter the position where they want to place their mark (either "❌" or "⭕"). The game board will be updated and displayed after each move. The game checks for a win or a draw after each move and announces the result accordingly.

@@ -118,6 +118,8 @@ class Game:
 
 # create an object for the class
 game = Game()
+
+# logic of game
 game_not_over = True
 current_round = 0
 while game_not_over:
